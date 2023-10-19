@@ -24,7 +24,7 @@ const jwtSecret = 'shjdhskjhfsh34678sd';
 app.use(express.json());
 app.use(cors({
     credentials: true,
-    origin:'http://localhost:5173',
+    origin:['http://localhost:5173', 'https://mini-airbnb-website.onrender.com'],
 }));
 
 //The 'cookie-parser' middleware is used to parse cookies from incoming HTTP reqs and makes them available in the 'req' obj
