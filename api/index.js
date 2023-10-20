@@ -30,13 +30,20 @@ app.options("/", (req, res) => {
     res.sendStatus(204);
   });
 
-app.use(cors({
-    credentials: true,
-    origin:['http://localhost:5173', 'https://mini-airbnb-website.onrender.com'],
-    optionsSuccessStatus:204
-    // methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    // allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
-}));
+app.use((req, res, next) => {
+res.setHeader("Access-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
+res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+next();
+})
+
+// app.use(cors({
+//     credentials: true,
+//     origin:['http://localhost:5173', 'https://mini-airbnb-website.onrender.com'],
+//     optionsSuccessStatus:204
+//     // methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+//     // allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+// }));
 
 //The 'cookie-parser' middleware is used to parse cookies from incoming HTTP reqs and makes them available in the 'req' obj
 app.use(cookieParser());
