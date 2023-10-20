@@ -13,6 +13,7 @@ const multer = require('multer');
 const fs = require('fs');
 const Place = require('./models/Place.js');
 const Booking = require('./models/Booking.js')
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
 const secret = bcrypt.genSaltSync(10); //Enscrpt the password 
@@ -42,6 +43,8 @@ app.use(express.json());
 //     next();
 //   })
 // app.use(cors());
+
+app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
 
 app.use(cors({
     credentials: true,
