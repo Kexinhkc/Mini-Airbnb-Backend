@@ -207,7 +207,7 @@ app.post('/register', async (req,res) => {
     });
 })
 
-app.get('/places', async (req,res) => {
+app.get('/api/places', async (req,res) => {
     res.json( await Place.find());
 })
 
