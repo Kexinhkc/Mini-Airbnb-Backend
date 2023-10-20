@@ -22,11 +22,14 @@ const jwtSecret = 'shjdhskjhfsh34678sd';
 
 //app.use() is a middleware function that adds middleware to the app's request processing pipeline. The function got access to the 'req' and 'res' objects and perform tasks such as authentication, data parsing etc 
 app.use(express.json());
+
+
+
 app.use(cors({
-    credentials: true,
-    origin:['http://localhost:5173', 'https://mini-airbnb-website.onrender.com', 'https://mini-airbnb-website-api.onrender.com'],
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
+    // credentials: true,
+    // origin:['http://localhost:5173', 'https://mini-airbnb-website.onrender.com', 'https://mini-airbnb-website-api.onrender.com'],
+    // methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+    // allowedHeaders: ['Content-Type', 'Origin', 'X-Requested-With', 'Accept', 'x-client-key', 'x-client-token', 'x-client-secret', 'Authorization'],
 }));
 
 //The 'cookie-parser' middleware is used to parse cookies from incoming HTTP reqs and makes them available in the 'req' obj
