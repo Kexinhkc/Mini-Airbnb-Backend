@@ -23,18 +23,20 @@ const jwtSecret = 'shjdhskjhfsh34678sd';
 //app.use() is a middleware function that adds middleware to the app's request processing pipeline. The function got access to the 'req' and 'res' objects and perform tasks such as authentication, data parsing etc 
 app.use(express.json());
 
-app.options("/", (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
-    res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-    res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-    res.sendStatus(204);
-  });
+// app.options("/", (req, res) => {
+//     res.setHeader("Access-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
+//     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
+//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+//     res.sendStatus(204);
+//   });
 
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "true");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+//   app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", "true");
+//     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+//     next();
+//   });
+
+app.use(cors());
 
 // app.use(cors({
 //     credentials: true,
