@@ -24,14 +24,14 @@ const jwtSecret = 'shjdhskjhfsh34678sd';
 app.use(express.json());
 
 app.options("/", (req, res) => {
-    res.setHeader("Access-Control-Allow-Origin:true", "https://mini-airbnb-website.onrender.com");
+    res.setHeader("Access-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
     res.sendStatus(204);
   });
 
   app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
+    res.header("Access-Control-Allow-Origin", true);
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
