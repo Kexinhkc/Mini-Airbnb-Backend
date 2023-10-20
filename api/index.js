@@ -228,4 +228,9 @@ app.get('/bookings', async (req,res) => {
     
 })
 
-app.listen(4000);//Start an express server and makes it listen for incoming http requests at port 4000. Once having the server, it can make use of the routes you have defined above
+// app.listen(4000);//Start an express server and makes it listen for incoming http requests at port 4000. Once having the server, it can make use of the routes you have defined above
+const PORT = process.env.PORT
+
+app.listen(PORT, () => {
+    console.log("Server is running on port " + PORT)
+})
