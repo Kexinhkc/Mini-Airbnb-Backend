@@ -194,7 +194,7 @@ app.get('/places', async (req,res) => {
     res.json( await Place.find());
 })
 
-app.get('https://mini-airbnb-website.onrender.com/user-places', (req,res) => {
+app.get('mini-airbnb-website-api.onrender.com/user-places', (req,res) => {
     const {token} = req.cookies;
     jwt.verify(token,jwtSecret,{}, async (err,userData) => {
 
