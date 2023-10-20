@@ -44,11 +44,11 @@ app.use(express.json());
 //   })
 // app.use(cors());
 
-app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
+// app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
 
 app.use(cors({
     credentials: true,
-    origin:['https://mini-airbnb-website.onrender.com'],
+    origin:['http://mini-airbnb-website.onrender.com'],
     optionsSuccessStatus:204,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     optionsSuccessStatus:204,
