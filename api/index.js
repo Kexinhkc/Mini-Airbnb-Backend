@@ -45,8 +45,9 @@ app.use(express.json());
 // app.use(cors());
 
 // app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
-
+console.log("outside cors");
 app.use(cors({
+    
     credentials: true,
     origin:['http://mini-airbnb-website.onrender.com'],
     optionsSuccessStatus:204,
@@ -54,6 +55,7 @@ app.use(cors({
     optionsSuccessStatus:204,
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
+console.log("after cors");
 
 app.use(cors({
     origin:true,
