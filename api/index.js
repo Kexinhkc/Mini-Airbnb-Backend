@@ -46,6 +46,9 @@ app.use(express.json());
 
 // app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
 console.log("outside cors");
+app.use((req, res) => {
+    console.log(req.url);
+})
 app.use(cors({
     
     credentials: true,
