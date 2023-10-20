@@ -40,7 +40,7 @@ app.use(express.json());
 
 app.use(cors({
     credentials: true,
-    origin:'https://mini-airbnb-website.onrender.com/',
+    origin:'https://mini-airbnb-website.onrender.com',
     optionsSuccessStatus:204,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     optionsSuccessStatus:204,
