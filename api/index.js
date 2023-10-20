@@ -45,13 +45,17 @@ app.use(express.json());
 
 app.use(cors({
     credentials: true,
-    origin:['https://mini-airbnb-website.onrender.com', 'https://mini-airbnb-website-api.onrender.com'],
+    origin:['https://mini-airbnb-website.onrender.com'],
     optionsSuccessStatus:204,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     optionsSuccessStatus:204,
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 
+app.use(cors({
+    origin:true,
+    
+}));
 //The 'cookie-parser' middleware is used to parse cookies from incoming HTTP reqs and makes them available in the 'req' obj
 app.use(cookieParser());
 
