@@ -49,7 +49,7 @@ console.log("outside cors");
 app.use(cors({
     
     credentials: true,
-    origin:['http://mini-airbnb-website.onrender.com'],
+    origin:['http://mini-airbnb-website.onrender.com:4000'],
     optionsSuccessStatus:204,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
     optionsSuccessStatus:204,
