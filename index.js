@@ -52,10 +52,9 @@ app.use((req, res) => {
 app.use(cors({
     
     credentials: true,
-    origin:['https://mini-airbnb-website.onrender.com:4000'],
+    origin:['https://mini-airbnb-website.onrender.com'],
     optionsSuccessStatus:204,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    optionsSuccessStatus:204,
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 console.log("after cors");
