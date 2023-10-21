@@ -24,37 +24,38 @@ const jwtSecret = 'shjdhskjhfsh34678sd';
 //app.use() is a middleware function that adds middleware to the app's request processing pipeline. The function got access to the 'req' and 'res' objects and perform tasks such as authentication, data parsing etc 
 app.use(express.json());
 
-// app.options("/", (req, res) => {
-//     res.setHeader("Access-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
-//     res.setHeader("Access-Control-Allow-Methods", "POST, GET, PUT");
-//     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
-//     res.sendStatus(204);
-//   });
-
-// app.use((req, res, next) => {
-//     res.header("Access-Control-Allow-credentials", "true");
-//     res.header("Acces-Control-Allow-Origin", "https://mini-airbnb-website.onrender.com");
-//     res.header(
-//       "Acces-Control-Allow-Header", 
-//       "Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CSRF-Token"
-//     );
-//     res.header('Acces-Control-Allow-Methods', "GET,OPTIONS, POST, DELETE, PUT, PATCH");
+app.use((req, res, next) => {
+    res.setHeader(
+      "Access-Control-Allow-Origin",
+      "https://mini-airbnb-website.onrender.com"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Methods",
+      "GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE"
+    );
+    res.setHeader(
+      "Access-Control-Allow-Headers",
+      "Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers"
+    );
+    res.setHeader("Access-Control-Allow-Credentials", true);
+    res.setHeader("Access-Control-Allow-Private-Network", true);
+    //  Firefox caps this at 24 hours (86400 seconds). Chromium (starting in v76) caps at 2 hours (7200 seconds). The default value is 5 seconds.
+    res.setHeader("Access-Control-Max-Age", 7200);
   
-//     next();
-//   })
-// app.use(cors());
+    next();
+  });
 
 // app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
 console.log("outside cors");
 
-app.use(cors({
+// app.use(cors({
     
-    credentials: true,
-    origin:['https://mini-airbnb-website.onrender.com'],
-    optionsSuccessStatus:204,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization']
-}));
+//     credentials: true,
+//     origin:['https://mini-airbnb-website.onrender.com'],
+//     optionsSuccessStatus:204,
+//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type', 'Authorization']
+// }));
 console.log("after cors");
 
 // app.use(cors({
