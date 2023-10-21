@@ -46,9 +46,9 @@ app.use(express.json());
 
 // app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
 console.log("outside cors");
-app.use((req, res) => {
-    console.log(req.url);
-})
+// app.use((req, res) => {
+//     console.log(req.url);
+// })
 app.use(cors({
     
     credentials: true,
@@ -206,11 +206,11 @@ app.post('/register', async (req,res) => {
     });
 })
 
-app.get('/api/places', async (req,res) => {
+app.get('/places', async (req,res) => {
     res.json( await Place.find());
 })
 
-app.get('/api//user-places', (req,res) => {
+app.get('/user-places', (req,res) => {
     const {token} = req.cookies;
     jwt.verify(token,jwtSecret,{}, async (err,userData) => {
 
