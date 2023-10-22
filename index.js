@@ -60,6 +60,7 @@ console.log("after cors");
 
 app.use(cors({
     origin:true,
+    credentials: true,
     
 }));
 //The 'cookie-parser' middleware is used to parse cookies from incoming HTTP reqs and makes them available in the 'req' obj
