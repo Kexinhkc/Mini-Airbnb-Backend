@@ -104,7 +104,11 @@ app.post('/login', async (req,res) => {
                 id:userDoc._id
              },jwtSecret,{}, (err,token) =>{ //3rd param indicates option, e.g. token expiration time, algo type... . Here set as an empty object, 4th is a callback function called in async mode
                 if (err) throw err;
-                res.cookie('token',token).json(userDoc);
+                res.cookie('token',token, {
+                    sameSite: 'None', // 'None' allows cross-site requests, use 'Lax' or 'Strict' for more restrictive settings
+                    secure: true, // Set to true if the request is sent over HTTPS
+                    
+                  }).json(userDoc);
             }); //Create a JSON Web Token and return the token in a JSON string
             
         }else {
