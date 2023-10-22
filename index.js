@@ -210,9 +210,10 @@ app.get('/places', async (req,res) => {
 
 app.get('/user-places', (req,res) => {
     const {token} = req.cookies;
+    // const {id} = 
     jwt.verify(token,jwtSecret,{}, async (err,userData) => {
 
-        console.log(userData.id);
+        console.log(userData.email);
         const {id} = userData;
         res.json(await Place.find({owner:id}));
     }); 
