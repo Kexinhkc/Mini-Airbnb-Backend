@@ -46,23 +46,21 @@ app.use(express.json());
 //   });
 
 // app.use('/https://mini-airbnb-website.onrender.com', createProxyMiddleware({ target: 'https://mini-airbnb-website-api.onrender.com', changeOrigin: true }));
-console.log("outside cors");
-
-// app.use(cors({
-    
-//     // credentials: true,
-//     origin:*,
-//     optionsSuccessStatus:204,
-//     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-//     allowedHeaders: ['Content-Type', 'Authorization']
-// }));
-console.log("after cors");
 
 app.use(cors({
-    origin:true,
-    credentials: true,
     
+    credentials: true,
+    origin:'https://mini-airbnb-website.onrender.com',
+    optionsSuccessStatus:204,
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
 }));
+
+// app.use(cors({
+//     origin:true,
+//     // credentials: true,
+    
+// }));
 //The 'cookie-parser' middleware is used to parse cookies from incoming HTTP reqs and makes them available in the 'req' obj
 app.use(cookieParser());
 
