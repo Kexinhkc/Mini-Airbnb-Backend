@@ -107,7 +107,7 @@ app.post('/login', async (req,res) => {
                 res.cookie('token',token, {
                     sameSite: 'None', // 'None' allows cross-site requests, use 'Lax' or 'Strict' for more restrictive settings
                     secure: true,// Set to true if the request is sent over HTTPS
-                    partitioned, 
+                    Partitioned, 
                     
                   }).json(userDoc);
             }); //Create a JSON Web Token and return the token in a JSON string
