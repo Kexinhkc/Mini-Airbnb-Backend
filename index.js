@@ -106,7 +106,8 @@ app.post('/login', async (req,res) => {
                 if (err) throw err;
                 res.cookie('token',token, {
                     sameSite: 'None', // 'None' allows cross-site requests, use 'Lax' or 'Strict' for more restrictive settings
-                    secure: true, // Set to true if the request is sent over HTTPS
+                    secure: true,// Set to true if the request is sent over HTTPS
+                    partitioned, 
                     
                   }).json(userDoc);
             }); //Create a JSON Web Token and return the token in a JSON string
@@ -214,9 +215,9 @@ app.get('/places', async (req,res) => {
 
 app.get('/user-places', (req,res) => {
     const {token} = req.cookies;
-    console.log("req body:" + req.body);
-    console.log("req cookies:" + req.cookies);
-    console.log("tokens:" + token);
+    // console.log("req body:" + req.body);
+    // console.log("req cookies:" + req.cookies);
+    // console.log("tokens:" + token);
     
 
     // const {id} = 
@@ -224,9 +225,9 @@ app.get('/user-places', (req,res) => {
 
         // console.log(userData);
         // console.log(err);
-        console.log(err);
+        // console.log(err);
         const {id} = userData;
-        console.log("id"+id);
+        // console.log("id"+id);
         res.json(await Place.find({owner:id}));
     }); 
 });
